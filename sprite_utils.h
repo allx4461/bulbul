@@ -5,7 +5,7 @@
 
 namespace SpriteUtils {
     // посчитали ширину и высоту
-    inline std::pair<int,int> getSize(const std::vector<std::string>& sprite) {
+    inline std::pair<int,int> getSize(const std::vector<std::string>& sprite) {//инлайн-функция, чтобы не было конфликтов
         int h = (int)sprite.size();
         int w = 0;
         for (const auto& row : sprite) {if ((int)row.size() > w) w = (int)row.size();}
@@ -14,10 +14,10 @@ namespace SpriteUtils {
     // развернули спрайт по горизонтали
     inline std::vector<std::string> flipHorizontally(const std::vector<std::string>& sprite) {
         std::vector<std::string> result;
-        result.reserve(sprite.size());
-        for (const auto& row : sprite) { result.emplace_back(row.rbegin(), row.rend());}
+        result.reserve(sprite.size());//строкой ниже - создали строку и кинули в рез
+        for (const auto& row : sprite) { result.emplace_back(row.rbegin(), row.rend());}//обратные итераторы потому что да
         return result;
-    }}
+    }
 
 char mirrorChar(char c) {
     switch (c) {
@@ -40,3 +40,4 @@ inline std::vector<std::string> flipHorizontally(const std::vector<std::string>&
             flipped.push_back(mirrorChar(*it));}
         result.push_back(flipped);}
     return result;}
+}//закрыли неймспейс

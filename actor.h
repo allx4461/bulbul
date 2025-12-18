@@ -12,25 +12,13 @@ protected:
     std::vector<std::string> spriteLeft;
 
 public:
-    Actor(int x, int y, int v, const std::vector<std::string>& sprite)
-        : x(x), y(y), v(v), spriteRight(sprite)
-    {
-        spriteLeft = SpriteUtils::flipHorizontally(spriteRight);
-        auto [ww, hh] = SpriteUtils::getSize(spriteRight);//std::pair<int,int> вместо first,second
-        w = ww;
-        h = hh;}
+    Actor(int x, int y, int v, const std::vector<std::string>& sprite);
 
-    virtual void move() {x += v;}
+    virtual void move();//двинет корды в нужном направлении
 
-    std::vector<int> getinfo() override {
-        return {x, y, w, h, v};}
+    std::vector<int> getinfo();//x,y,h,w
 
-    std::vector<char> getimage() override {
-        const auto& src = (v >= 0 ? spriteRight : spriteLeft);//условие ? если_истина : если_ложь
-        std::vector<char> res;
-        res.reserve(w * h);//выделили память
-        for (const auto& row : src) {res.insert(res.end(), row.begin(), row.end());}
-        return res;}
+    std::vector<char> getimage() override;//в зависимости от v вернет спрайт
 
-    void update() override { move();}
+    void update() override;//пока только делает мув
 };
