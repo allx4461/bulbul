@@ -2,7 +2,7 @@
 
 Actor::Actor(int x, int y, int v, const std::vector<std::string>& sprite)
     : x(x), y(y), v(v), spriteRight(sprite)//инициализация полей - поле(параметр конструктора)
-{
+{                      
     spriteLeft = SpriteUtils::flipHorizontally(spriteRight);
 
     auto [ww, hh] = SpriteUtils::getSize(spriteRight); //std::pair<int,int> вместо first,second

@@ -1,0 +1,30 @@
+#pragma once
+#include "actor.h"
+#include "sprite_utils.h"
+#include <vector>
+#include <string>
+#include <cstdlib>
+
+
+class fish1: public Actor{
+public:
+    fish1(int worldWidth, int worldHeight); 
+};
+
+class fish2: public Actor{
+public:
+    fish2(int worldWidth, int worldHeight); 
+};
+
+
+class fish3: public Actor{
+public:
+    fish3(int worldWidth, int worldHeight); 
+};
+
+
+
+class fish3: public Actor{
+public:
+    fish3(int worldWidth, int worldHeight); 
+};
