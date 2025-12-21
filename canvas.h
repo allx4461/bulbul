@@ -2,21 +2,30 @@
 #define CANVAS_H
 
 #include <vector>
+#include <cstdint>
 
-class Canvas:
+enum class Color:std::uint8_t {Default, Blue, Green, Yellow};
+
+struct Cell{
+    char ch = ' ';
+    Color color = Color::Default;
+};
+
+class Canvas{
 private:
-    c_height = 0;
-    c_width = 0;
+    int c_width; 
+    int c_height; 
+    std::vector<std::vector<Cell>> world_matrix;
 
 public:
-    Canvas(int width, int height);
-    ~Canvas();
+    Canvas(int height, int width);
+    ~Canvas()= default;
 
-    void clear();
-    void addSprite(const std::vector<std::vector<char>>& entity, int x, int y);
-    void viewPresent();
+    void clear(char fill = ' ', Color col = Color::Default);
+    void addSprite(const std::vector<std::vector<char>>& entity, int x, int y, Color color = Color::Default);
     void drawBorder();
+    void set(int x, int y, char ch, Color color = Color::Default);
+    void present();
 
-
-
+};
 #endif //CANVAS_H

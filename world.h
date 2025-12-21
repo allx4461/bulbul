@@ -21,9 +21,6 @@ public:
     bool inside(int x, int y) const; 
 
 private:
-    void applyAdds();
-    void applyRemoves();
-
     void drawBack();
 
 private:
@@ -31,11 +28,6 @@ private:
     int w_height = 0;
 
     std::vector<std::unique_ptr<Entity>> w_entities;
-
-    std::vector<std::unique_ptr<Entity>> queue_add;
-    std::vector<Entity*> queue_remove;
-
-
 }
 
 #endif //WORLD_H

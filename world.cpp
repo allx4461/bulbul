@@ -12,35 +12,34 @@ World::~World(){
 
 void World::update(float dt){
     for (auto& entity:w_entities){
-        entitiy->update(*this, dt);
+        entitiy->update(*this, dt); //обновляем состояние сущности(координаты, направление)
     }
-    applyAdd();
-    applyRemove();
 }
 
 void World::render(Canvas& canvas){
-    drawBack(canvas);
+    drawBack(canvas); // рисуем фон
 
     for (Entity* entity:w_entities){
-        entity->draw(canvas);
+        entity->draw(canvas); // отрисовываем каждую сущность
     }
 }
 
-void World::addEntity(std::unique_ptr<Entity> entitiy){
-    queue_add.push_back(std::move(entity));
+void World::addEntity(std::unique_ptr<Entity> entitiy){   
+    w_entities.push_back(std::move(entity)); //добавляем в массив
 
 }
 
 
 void World::removeEntity(Entity* entity){
-    queue_remove.push_back(entity);
-
+    for (int i=0; i<w_entities.size(); ++i){
+        if (w_entities[w_entities.begin()+i] == entity){
+            w_entities.erase(w_entities.begin()+i); //удаляем сущность из массива сущностей
+        }
+    }
 }
 
 void World::clear(){
-    w_entities.clear();
-    queue_add.clear();
-    queue_remove.clear();
+    w_entities.clear(); //чистим массив
 }
 
 int World::width(){
@@ -53,21 +52,4 @@ int World::height(){
 
 bool World::inside(int x, int y){
     return (x>=0 && x<=w_width) && (y>=0 && y<= w_height);
-}
-
-void World::applyAdds(){
-    if (queue_add.empty()) return;
-
-    for (auto& entity:queue_add){
-        w_entities.push_back(std::move(entity));
-    }
-    queue_add.clear();
-}
-
-void World::applyRemoves(){
-    if (queue_remove.empty()) return;
-
-    for (auto* entity:queue_remove){
-        delete
-    }
 }
