@@ -3,8 +3,8 @@
 #include "sprite_utils.h"
 #include <vector>
 #include <string>
-#include "world.cpp"
-#include "canvas.cpp"
+#include "world.h"
+#include "canvas.h"
 
 class Actor : public Entity {
 protected:
@@ -15,14 +15,14 @@ protected:
 
 public:
     Actor(int x, int y, int v, const std::vector<std::string>& sprite);
-
+    virtual ~Actor();
     virtual void move();//двинет корды в нужном направлении
 
     std::vector<int> getinfo();//x,y,h,w
 
-    std::vector<char> getimage() override;//в зависимости от v вернет спрайт
+    std::vector<std::vector<char>> getSprite() override;//в зависимости от v вернет спрайт
 
-    void update(&World world) override;//пока только делает мув
+    void update(World& world) override;//пока только делает мув
 
-    void draw(&Canvas canvas);
+    void draw(Canvas& canvas);
 };

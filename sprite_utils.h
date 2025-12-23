@@ -13,7 +13,7 @@ namespace SpriteUtils {
 
     // развернули спрайт по горизонтали
 
-    char mirrorChar(char c) {
+    inline char mirrorChar(char c) {
         switch (c) {
             case '(': return ')';
             case ')': return '(';

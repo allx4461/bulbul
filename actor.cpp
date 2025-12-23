@@ -1,4 +1,4 @@
-#pragma once//https://en.cppreference.com/w/cpp/preprocessor/impl.html
+//https://en.cppreference.com/w/cpp/preprocessor/impl.html
 #include "actor.h"
 
 Actor::Actor(int x, int y, int v, const std::vector<std::string>& sprite)
@@ -15,16 +15,19 @@ std::vector<int> Actor::getinfo() {return {x, y, w, h, v};}
 
 void Actor::move(){x += v;}
 
-std::vector<char> Actor::getimage() {
-        const auto& src = (v >= 0 ? spriteRight : spriteLeft);//условие ? если истина : если ложь
-        std::vector<char> res;
-        res.reserve(w * h);//выделили память
-        for (const auto& row : src) {res.insert(res.end(), row.begin(), row.end());}  
-        return res;}
+std::vector<std::vector<char>> Actor::getSprite() {
+    const auto& src = (v >= 0 ? spriteRight : spriteLeft);  // тернарный оператор эээ
+    std::vector<std::vector<char>> res;  
+    for (const auto& row : src) {
+        std::vector<char> rowData(row.begin(), row.end());  // преобразуем строку в вектор символов
+        res.push_back(rowData);}
+    return res;  
+}
+
 
 void Actor::update(World& world){ 
     move();
-    if !(world.inside(getinfo()[0],getinfo()[1])){
+    if (!(world.inside(getinfo()[0],getinfo()[1]))){
         v=-v;}}
 
 void Actor::draw(Canvas& canvas){ 
@@ -33,3 +36,4 @@ void Actor::draw(Canvas& canvas){
     int y = this->y; 
     canvas.addSprite(sprite,x,y,Color::Blue);
 }
+Actor::~Actor() {}

@@ -38,11 +38,11 @@ void World::clear(){
     w_entities.clear(); //чистим массив
 }
 
-int World::width(){
+int World::width() const{
     return w_width;
 }
 
-int World::height(){
+int World::height() const{
     return w_height;
 }
 

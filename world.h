@@ -4,7 +4,8 @@
 #include <vector>
 #include <memory>
 #include "entity.h"
-
+#include "canvas.h"
+class Entity;
 class World{
 public:
     World(float worldWidth, float worldHeight);
