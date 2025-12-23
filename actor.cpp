@@ -1,5 +1,6 @@
+#pragma once
 #include "actor.h"
-
+#include "world.cpp"
 Actor::Actor(int x, int y, int v, const std::vector<std::string>& sprite)
     : x(x), y(y), v(v), spriteRight(sprite)//инициализация полей - поле(параметр конструктора)
 {                      
@@ -21,4 +22,8 @@ std::vector<char> Actor::getimage() {
         for (const auto& row : src) {res.insert(res.end(), row.begin(), row.end());}  
         return res;}
 
-void Actor::update(){ move();}
+void Actor::update(World& world){ 
+    if world.inside(getinfo()[0],getinfo()[1]){move();}
+    else{v=-v;
+        move();}
+    }

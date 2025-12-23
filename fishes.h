@@ -8,23 +8,16 @@
 
 class fish1: public Actor{
 public:
-    fish1(int worldWidth, int worldHeight); 
-};
+    fish1(int worldWidth, int worldHeight); };
 
 class fish2: public Actor{
 public:
-    fish2(int worldWidth, int worldHeight); 
-};
-
+    fish2(int worldWidth, int worldHeight); };
 
 class fish3: public Actor{
 public:
-    fish3(int worldWidth, int worldHeight); 
-};
+    fish3(int worldWidth, int worldHeight); };
 
-
-
-class fish3: public Actor{
+class fish4: public Actor{
 public:
-    fish3(int worldWidth, int worldHeight); 
-};
+    fish4(int worldWidth, int worldHeight); };
