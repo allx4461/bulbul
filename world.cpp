@@ -12,9 +12,9 @@ void World::update(){
 }
 
 void World::render(Canvas& canvas){
-    drawBack(canvas); // рисуем фон
+    canvas.drawBorder(); // рисуем фон
 
-    for (Entity* entity:w_entities){
+    for (auto& entity:w_entities){
         entity->draw(canvas); // отрисовываем каждую сущность
     }
 }
@@ -26,9 +26,10 @@ void World::addEntity(std::unique_ptr<Entity> entity){
 
 
 void World::removeEntity(Entity* entity){
-    for (int i=w_entities.begin(); i!=w_entities.end(); ++i){
-        if (w_entities[i] == entity){
+    for (auto i=w_entities.begin(); i!=w_entities.end(); ++i){
+        if (i->get() == entity){
             w_entities.erase(i); //удаляем сущность из массива сущностей
+            break;
         }
     }
 }

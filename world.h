@@ -2,6 +2,7 @@
 #define WORLD_H
 
 #include <vector>
+#include <memory>
 #include "entity.h"
 
 class World{
@@ -28,6 +29,6 @@ private:
     int w_height = 0;
 
     std::vector<std::unique_ptr<Entity>> w_entities;
-}
+};
 
 #endif //WORLD_H

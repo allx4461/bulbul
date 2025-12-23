@@ -76,7 +76,9 @@ void Canvas::clear(char fill, Color col){
 void Canvas::addSprite(const std::vector<std::vector<char>>& entity, int x, int y, Color color){
     for (int iy=0; iy<entity.size(); ++iy){
         for (int ix=0; ix<entity[iy].size(); ++ix){
-            set(x+ix ,y+iy, entity[iy][ix], color);
+            if (entity[iy][ix] == ' '){continue;}
+            else if(entity[iy][ix]=='%'){set(x+ix ,y+iy, ' ', color);}
+            else{set(x+ix ,y+iy, entity[iy][ix], color);}
         }
     }
 }
