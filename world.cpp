@@ -1,18 +1,13 @@
 #include "world.h"
+#include "canvas.h"
+#include "entity.h"
 #include <vector>
 
 World::World(float width, float height): w_width(width), w_height(height){}
 
-World::~World(){
-    if (entities.size() != 0):
-        for (auto& entity:entities){
-            delete entity;
-        }
-}
-
-void World::update(float dt){
+void World::update(){
     for (auto& entity:w_entities){
-        entitiy->update(*this, dt); //обновляем состояние сущности(координаты, направление)
+        entity->update(*this); //обновляем состояние сущности(координаты, направление)
     }
 }
 
@@ -24,16 +19,16 @@ void World::render(Canvas& canvas){
     }
 }
 
-void World::addEntity(std::unique_ptr<Entity> entitiy){   
+void World::addEntity(std::unique_ptr<Entity> entity){   
     w_entities.push_back(std::move(entity)); //добавляем в массив
 
 }
 
 
 void World::removeEntity(Entity* entity){
-    for (int i=0; i<w_entities.size(); ++i){
-        if (w_entities[w_entities.begin()+i] == entity){
-            w_entities.erase(w_entities.begin()+i); //удаляем сущность из массива сущностей
+    for (int i=w_entities.begin(); i!=w_entities.end(); ++i){
+        if (w_entities[i] == entity){
+            w_entities.erase(i); //удаляем сущность из массива сущностей
         }
     }
 }
@@ -51,5 +46,5 @@ int World::height(){
 }
 
 bool World::inside(int x, int y){
-    return (x>=0 && x<=w_width) && (y>=0 && y<= w_height);
+    return (x>=0 && x<=w_width) && (y>=0 && y<= w_height);//проверка не вывалилась ли рыбка за аквариум
 }

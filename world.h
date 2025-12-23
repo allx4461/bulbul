@@ -18,7 +18,7 @@ public:
 
     int width() const;
     int height() const;
-    bool inside(int x, int y) const; 
+    bool inside(int x, int y); 
 
 private:
     void drawBack();

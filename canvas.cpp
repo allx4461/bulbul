@@ -73,10 +73,10 @@ void Canvas::clear(char fill, Color col){
     }
 }
 
-void Canvas::addSprite(const std::vector<std::vector<char>>& entity, int x, int y, Color color = Color::Default){
+void Canvas::addSprite(const std::vector<std::vector<char>>& entity, int x, int y, Color color){
     for (int iy=0; iy<entity.size(); ++iy){
         for (int ix=0; ix<entity[iy].size(); ++ix){
-            set(x+ix ,y+iy, entity[iy][ix], Color::Default);
+            set(x+ix ,y+iy, entity[iy][ix], color);
         }
     }
 }
