@@ -23,7 +23,6 @@ std::vector<char> Actor::getimage() {
         return res;}
 
 void Actor::update(World& world){ 
-    if world.inside(getinfo()[0],getinfo()[1]){move();}
-    else{v=-v;
-        move();}
-    }
+    move();
+    if !(world.inside(getinfo()[0],getinfo()[1])){
+        v=-v;}}
