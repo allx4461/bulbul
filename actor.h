@@ -3,6 +3,8 @@
 #include "sprite_utils.h"
 #include <vector>
 #include <string>
+#include "world.cpp"
+#include "canvas.cpp"
 
 class Actor : public Entity {
 protected:
@@ -20,5 +22,7 @@ public:
 
     std::vector<char> getimage() override;//в зависимости от v вернет спрайт
 
-    void update() override;//пока только делает мув
+    void update(&World world) override;//пока только делает мув
+
+    void draw(&Canvas canvas);
 };

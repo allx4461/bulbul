@@ -1,13 +1,13 @@
-#pragma once
+#pragma once//https://en.cppreference.com/w/cpp/preprocessor/impl.html
 #include "actor.h"
-#include "world.cpp"
+
 Actor::Actor(int x, int y, int v, const std::vector<std::string>& sprite)
     : x(x), y(y), v(v), spriteRight(sprite)//инициализация полей - поле(параметр конструктора)
 {                      
     spriteLeft = SpriteUtils::flipHorizontally(spriteRight);
 
     auto [ww, hh] = SpriteUtils::getSize(spriteRight); //std::pair<int,int> вместо first,second
-    w = ww;
+    w = ww;//^^ https://en.cppreference.com/w/cpp/utility/pair.html
     h = hh;
 }
 
@@ -23,6 +23,13 @@ std::vector<char> Actor::getimage() {
         return res;}
 
 void Actor::update(World& world){ 
-    if !(world.inside(getinfo()[0]+1,getinfo()[1])){
-        v=-v;}}
     move();
+    if !(world.inside(getinfo()[0],getinfo()[1])){
+        v=-v;}}
+
+void Actor::draw(Canvas& canvas){ 
+    std::vector<std::vector<char>> sprite = getSprite(); 
+    int x = this->x;
+    int y = this->y; 
+    canvas.addSprite(sprite,x,y,Color::Blue);
+}
