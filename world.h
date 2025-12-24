@@ -21,6 +21,7 @@ public:
     int width() const;
     int height() const;
     bool inside(int x, int y); 
+    int size();
 
 private:
     void drawBack();

@@ -25,10 +25,11 @@ std::vector<std::vector<char>> Actor::getSprite() {
 }
 
 
-void Actor::update(World& world){ 
+void Actor::update(World& world){
+    if (!(world.inside(getinfo()[0]+1,getinfo()[1]))){
+        v=-v;}
     move();
-    if (!(world.inside(getinfo()[0],getinfo()[1]))){
-        v=-v;}}
+    }
 
 void Actor::draw(Canvas& canvas){ 
     std::vector<std::vector<char>> sprite = getSprite(); 

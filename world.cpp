@@ -12,7 +12,7 @@ void World::update(){
 }
 
 void World::render(Canvas& canvas){
-    canvas.drawBorder(); // рисуем фон
+    canvas.drawBorder();
 
     for (auto& entity:w_entities){
         entity->draw(canvas); // отрисовываем каждую сущность
@@ -48,4 +48,8 @@ int World::height() const{
 
 bool World::inside(int x, int y){
     return (x>=0 && x<=w_width) && (y>=0 && y<= w_height);//проверка не вывалилась ли рыбка за аквариум
+}
+
+int World::size(){
+    return w_entities.size();
 }

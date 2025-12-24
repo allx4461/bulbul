@@ -1,7 +1,6 @@
 #include "fishes.h"
 #include <cstdlib>
 
-
 fish1::fish1(int worldWidth, int worldHeight)
     : Actor(
         (rand() % (worldWidth-19)),   // x
