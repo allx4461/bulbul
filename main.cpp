@@ -57,12 +57,13 @@
 std::string chooseEntity(){
     std::string f;
     bool flag_s = true;
-    std::cout << "You may choos one of this:" << std::endl;
+    std::cout << "You may choose one of this:" << std::endl;
     std::cout << "MiniShark | JellyFish | mediumFish | MiniFish | ManyFish | Seahorse | Weed | 42" << std::endl;
     std::getline(std::cin, f);
     while (flag_s){      
         if (f=="MiniShark" || f=="JellyFish" || f=="mediumFish" || f=="MiniFish" || f=="ManyFish" || f=="Seahorse" || f=="Weed" || f=="42"){
             flag_s = false;
+            std::cout << flag_s << std::endl;
         }else{
             std::cout << "enter correct command pls" << std::endl;
             std::getline(std::cin, f);
@@ -143,32 +144,33 @@ int main(){
                 std::getline(std::cin, command);
             }
         }
-        bool comF = false;
-        while (!comF){
+        bool comF = true;
+        while (comF){
             if (command=="stop"){ 
                 flag = false;
+                comF = false;
             }
             else if (command=="addEntity"){
-                world.addEntity(createFish(chooseEntity(), world.width(), world.height()));
+                std::string comm = chooseEntity();
+                world.addEntity(createFish(comm, world.width(), world.height()));
+                comF = false;
             }else if (command=="playWorld"){
                 std::cout << "\033[?25l";
-                while (true){
-                    for (int i=0; i<tik; ++i){
-                        std::unique_ptr<Bubble> bubble = std::make_unique<Bubble>(world.width(), world.height());
-                        world.addEntity(std::move(bubble));
-                        std::cout << "\033[H"; 
-                        canvas.clear();
-                        world.update();
-                        world.render(canvas);
-                        canvas.present();
-                        std::this_thread::sleep_for(std::chrono::milliseconds(100));
-                    }
+                for (int i=0; i<100; ++i){
+                    std::unique_ptr<Bubble> bubble = std::make_unique<Bubble>(world.width(), world.height());
+                    world.addEntity(std::move(bubble));
+                    std::cout << "\033[H"; 
+                    canvas.clear();
+                    world.update();
+                    world.render(canvas);
+                    canvas.present();
+                    std::this_thread::sleep_for(std::chrono::milliseconds(100));
                 }
+                comF = false;
                 std::cout << "\033[?25h";
             }else{
                 std::cout << "wtf normal command please :3" << std::endl;
                 std::getline(std::cin, command);
-                comF = true;
             }
         }
     }
