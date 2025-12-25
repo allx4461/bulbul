@@ -1,6 +1,7 @@
 #include "fishes.h"
 #include <cstdlib>
 
+
 fish1::fish1(int worldWidth, int worldHeight)
     : Actor(
         (rand() % (worldWidth-19)),   // x
@@ -11,7 +12,7 @@ fish1::fish1(int worldWidth, int worldHeight)
   "|\\._,,_..)\\      ",
   "|%%%%%%%%%%\"\"-._ ",
   "|/'-'-.%%%%{{{%* ´. ",
-  "'      '--|/-----v´"
+  "'      '--|/-----v´ "
 }
 
     )
@@ -64,4 +65,57 @@ fish4::fish4(int worldWidth, int worldHeight)
 " ><>%%:<>    ",
 }
     )
+{}
+
+fish5::fish5(int worldWidth, int worldHeight)
+    : Actor(
+        (rand() % (worldWidth-6)),   // x
+        (rand() % (worldHeight-5-2))+2 ,  // y
+        1,                     // v —
+    {
+" ____ ",
+"(o%%o)",
+" )))) ",
+"(((( ",
+" )))) "})
+{}
+
+fish6::fish6(int worldWidth, int worldHeight)
+    : Actor(
+        (rand() % (worldWidth-5)),   // x
+        (rand() % (worldHeight-4-2))+2 ,  // y
+        1,                     // v —
+    {
+" :=@ ",
+" {|< ",
+"  |  ",
+"  J  "})
+{}
+
+
+fish7::fish7(int worldWidth, int worldHeight)
+    : Actor(
+        (rand() % (worldWidth-28)),   // x
+        (rand() % (worldHeight-20-2))+2 ,  // y
+        1,                     // v —
+    {
+"                                /\\    ",
+"             |\\/\\_/\\/|         :%%:   ",
+" /\\          |%.%:%.%|         |%%|   ",
+" //\\\\      _.-'¯¯¯¯¯¯¯'-._      |%%|   ",
+" \\\\/    /¯%%%%%%%%%%%%%%%¯\\    |%%|   ",
+" XX    /%%%%%._%%%%%_.%%%%%\\   |%%|   ",
+" ||   |%%%%%/-_'%%%'_-\\%%%%%|  |%%|   ",
+" ||   |%%%%%\\_/%%%%%\\_/%%%%%|  |%%|   ",
+" ||   |%%%%%%%%%%%%%%%%%%%%%|  |/\\|   ",
+" ||    \\%%%%%%WWWWWWW%%%%%%/   ||||   ",
+" ||     \\%%%%%%%%%%%%%%%%%/  ()=TT=() ",
+"(¯¯¯\\    |%%%%%%%_%%%%%%%|    /¯¯¯)  ",
+" TT\\%\\  /%/%/%/%/ \\%\\%\\%\\%  /%/TT   ",
+" || \\%\\/%/%/%/%/   \\%\\%\\%\\/%/ ||   ",
+" ||  \\__/%%/%/%(     )%\\%\\%__/ (oo)  ",
+" ||     (%(%(%(     )%)%)%/          ",
+" ||     (%(%(%(     )%)%)%/          ",
+" ||     (%(%(%(     )%)%)%/          ",
+" ||     (o(o(o(     )o)o)o)          "})
 {}

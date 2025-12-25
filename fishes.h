@@ -21,3 +21,15 @@ public:
 class fish4: public Actor{
 public:
     fish4(int worldWidth, int worldHeight); };
+
+class fish5: public Actor{
+public:
+    fish4(int worldWidth, int worldHeight); };
+
+class fish6: public Actor{
+public:
+    fish4(int worldWidth, int worldHeight); };
+
+class fish7: public Actor{
+public:
+    fish4(int worldWidth, int worldHeight); };
