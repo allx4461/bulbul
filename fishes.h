@@ -33,3 +33,10 @@ public:
 class fish7: public Actor{
 public:
     fish4(int worldWidth, int worldHeight); };
+
+
+    
+class weed1: public Actor{
+public:
+    weed1(int worldWidth, int worldHeight); 
+    void move() override;};

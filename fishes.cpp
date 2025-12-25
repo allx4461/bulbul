@@ -119,3 +119,20 @@ fish7::fish7(int worldWidth, int worldHeight)
 " ||     (%(%(%(     )%)%)%/          ",
 " ||     (o(o(o(     )o)o)o)          "})
 {}
+
+
+
+weed1::weed1(int worldWidth, int worldHeight)
+    : Actor(
+        (rand() % (worldWidth-5)),   // x
+        (1),  // y
+        1,                     
+    {"  )  ",
+" -(   ",
+"  )   ",
+" -(   ",
+"  )-  "
+}
+    )
+{}
+weed1::move(){v=-v;}
