@@ -63,7 +63,6 @@ std::string chooseEntity(){
     while (flag_s){      
         if (f=="MiniShark" || f=="JellyFish" || f=="mediumFish" || f=="MiniFish" || f=="ManyFish" || f=="Seahorse" || f=="Weed" || f=="42"){
             flag_s = false;
-            std::cout << flag_s << std::endl;
         }else{
             std::cout << "enter correct command pls" << std::endl;
             std::getline(std::cin, f);

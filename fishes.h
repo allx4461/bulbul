@@ -24,15 +24,15 @@ public:
 
 class fish5: public Actor{
 public:
-    fish4(int worldWidth, int worldHeight); };
+    fish5(int worldWidth, int worldHeight); };
 
 class fish6: public Actor{
 public:
-    fish4(int worldWidth, int worldHeight); };
+    fish6(int worldWidth, int worldHeight); };
 
 class fish7: public Actor{
 public:
-    fish4(int worldWidth, int worldHeight); };
+    fish7(int worldWidth, int worldHeight); };
 
 
     
@@ -40,5 +40,5 @@ class weed1: public Actor{
 public:
     weed1(int worldWidth, int worldHeight); 
     void move() override;
-    void draw() override;
+    void draw(Canvas& canvas) override;
 };
