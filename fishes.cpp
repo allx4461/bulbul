@@ -122,6 +122,7 @@ fish7::fish7(int worldWidth, int worldHeight)
 
 
 
+
 weed1::weed1(int worldWidth, int worldHeight)
     : Actor(
         (rand() % (worldWidth-5)),   // x
@@ -136,3 +137,9 @@ weed1::weed1(int worldWidth, int worldHeight)
     )
 {}
 weed1::move(){v=-v;}
+weed1::draw(Canvas& canvas){ 
+    std::vector<std::vector<char>> sprite = getSprite(); 
+    int x = this->x;
+    int y = this->y; 
+    canvas.addSprite(sprite,x,y,Color::Green);
+}
