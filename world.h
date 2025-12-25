@@ -20,7 +20,7 @@ public:
 
     int width() const;
     int height() const;
-    bool inside(int x, int y); 
+    bool inside(int x, int y, int h, int w); 
     int size();
 
 private:

@@ -26,7 +26,7 @@ std::vector<std::vector<char>> Actor::getSprite() {
 
 
 void Actor::update(World& world){
-    if (!(world.inside(getinfo()[0]+1,getinfo()[1]))){
+    if (!(world.inside(getinfo()[0]+1,getinfo()[1], getinfo()[2],getinfo()[3]))){
         v=-v;}
     move();
     }
@@ -35,6 +35,6 @@ void Actor::draw(Canvas& canvas){
     std::vector<std::vector<char>> sprite = getSprite(); 
     int x = this->x;
     int y = this->y; 
-    canvas.addSprite(sprite,x,y,Color::Blue);
+    canvas.addSprite(sprite,x,y,Color::LiteBlue);
 }
 Actor::~Actor() {}

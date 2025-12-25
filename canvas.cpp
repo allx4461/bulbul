@@ -3,7 +3,7 @@
 #include <string>
 #include <iostream>
 
-Canvas::Canvas(int height, int width): c_width(width), c_height(height), world_matrix(height, std::vector<Cell>(width, Cell{' ', Color::Default})){}
+Canvas::Canvas(int width, int height): c_width(width), c_height(height), world_matrix(height, std::vector<Cell>(width, Cell{' ', Color::Default})){}
 
 static std::string patternToWidth(const std::string& pattern, int width){
     if (pattern.empty() || width<pattern.size()) return std::string(width, ' ');
@@ -19,6 +19,7 @@ static const char* colorFor(Color col){
         case Color::Blue: return "\033[36m"; //красит в голубой
         case Color::Yellow: return "\033[38;5;220m";
         case Color::Green: return "\033[32m";
+        case Color::LiteBlue: return "\033[38;5;51m";
         default: return "\033[0m";
     }
 }

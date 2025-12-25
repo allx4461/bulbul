@@ -12,13 +12,18 @@
 
 int main(){
     srand(time(0));
-    World world(38, 170);
+    World world(140, 38);
     Canvas canvas(world.width(), world.height());
-    std::unique_ptr<fish3> entity = std::make_unique<fish3>(world.width(), world.height());
+    std::unique_ptr<fish1> entity = std::make_unique<fish1>(world.width(), world.height());
     world.addEntity(std::move(entity));
+    srand(time(0));
+    std::unique_ptr<fish2> entity1 = std::make_unique<fish2>(world.width(), world.height());
+    world.addEntity(std::move(entity1));
     std::cout << world.size() << std::endl;
     std::cout << "\033[?25l";
-    for (int i=0; i<150; ++i){
+    for (int i=0; i<200; ++i){
+        std::unique_ptr<Bubble> bubble = std::make_unique<Bubble>(world.width(), world.height());
+        world.addEntity(std::move(bubble));
         std::cout << "\033[H"; 
         canvas.clear();
         world.update();

@@ -6,9 +6,7 @@ Bubble::Bubble(int worldWidth, int worldHeight)
         rand() % worldWidth,   // x
         rand() % worldHeight,  // y
         0,                     // v — по x не двигается
-        { " __ ",
-          "(  )",
-          " __ " }
+        { "o"}
     )
 {}
 

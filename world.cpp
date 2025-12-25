@@ -46,8 +46,8 @@ int World::height() const{
     return w_height;
 }
 
-bool World::inside(int x, int y){
-    return (x>=0 && x<=w_width) && (y>=0 && y<= w_height);//проверка не вывалилась ли рыбка за аквариум
+bool World::inside(int x, int y, int h, int w){
+    return (x>=0 && x+h<=w_width) && (y>=0 && y+w<= w_height);//проверка не вывалилась ли рыбка за аквариум
 }
 
 int World::size(){

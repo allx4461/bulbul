@@ -4,7 +4,7 @@
 #include <vector>
 #include <cstdint>
 
-enum class Color:std::uint8_t {Default, Blue, Green, Yellow};
+enum class Color:std::uint8_t {Default, Blue, Green, Yellow, LiteBlue};
 
 struct Cell{
     char ch = ' ';
@@ -18,7 +18,7 @@ private:
     std::vector<std::vector<Cell>> world_matrix;
 
 public:
-    Canvas(int height, int width);
+    Canvas(int width, int height);
     ~Canvas()= default;
 
     void clear(char fill = ' ', Color col = Color::Default);
