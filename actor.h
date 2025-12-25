@@ -24,5 +24,5 @@ public:
 
     void update(World& world) override;//пока только делает мув
 
-    void draw(Canvas& canvas);
+    virtual void draw(Canvas& canvas);
 };
