@@ -39,4 +39,6 @@ public:
 class weed1: public Actor{
 public:
     weed1(int worldWidth, int worldHeight); 
-    void move() override;};
+    void move() override;
+    void draw() override;
+};
