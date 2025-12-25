@@ -130,7 +130,7 @@ int main(){
             std::this_thread::sleep_for(std::chrono::milliseconds(100));
         }
         std::cout << "\033[?25h";
-        std::cout << "What do you wanto to do?(choose)" << std::endl;
+        std::cout << "What do you want to do?(choose)" << std::endl;
         std::cout << "stop | addEntity | playWorld" << std::endl;
         std::string command;
         std::getline(std::cin, command);
