@@ -24,9 +24,6 @@ public:
     int size();
 
 private:
-    void drawBack();
-
-private:
     int w_width = 0;
     int w_height = 0;
 

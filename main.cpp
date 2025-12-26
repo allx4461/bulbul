@@ -108,7 +108,7 @@ int main(){
     Canvas canvas(world.width(), world.height());
     srand(time(0));
     std::cout << "Welkome to bulbul aquarium ^^" << std::endl;
-    std::cout << "How much ticks do you want?(enter number from 10 to 100)" << std::endl;
+    std::cout << "How much ticks do you want?" << std::endl;
     int tik;
     std::cin >> tik;
     std::cin.ignore();
@@ -130,7 +130,7 @@ int main(){
             std::this_thread::sleep_for(std::chrono::milliseconds(100));
         }
         std::cout << "\033[?25h";
-        std::cout << "What do you want to do?(choose)" << std::endl;
+        std::cout << "What do you wanto to do?(choose)" << std::endl;
         std::cout << "stop | addEntity | playWorld" << std::endl;
         std::string command;
         std::getline(std::cin, command);
